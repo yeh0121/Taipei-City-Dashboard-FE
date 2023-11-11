@@ -152,9 +152,6 @@ export const useContentStore = defineStore("content", {
 					.chart_config.source
 					? this.currentDashboard.content[index].chart_config.source
 					: `/chartData/${component.id}.json`;
-				console.log(
-					this.currentDashboard.content[index].chart_config.source
-				);
 
 				axios
 					.get(chartDataSource)
