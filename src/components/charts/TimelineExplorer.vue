@@ -109,35 +109,46 @@ function handleDataSelection(e, chartContext, config) {
 
 <template>
 	<div v-if="activeChart === 'TimelineExplorer'">
-		<div class="activity-detail">
-			<div class="activity-name">2023繽紛耶誕玩台北｜北投區</div>
-			<div class="activity-date">2023-11-17 ~ 2024-01-01</div>
-		</div>
+		<apexchart
+			width="100%"
+			:height="chartHeight"
+			type="bar"
+			:options="chartOptions"
+			:series="series"
+			@dataPointSelection="handleDataSelection"
+		></apexchart>
 
-		<div class="activity-detail">
-			<div class="activity-name">2023繽紛耶誕玩台北｜北投區</div>
-			<div class="activity-date">2023-11-17 ~ 2024-01-01</div>
-		</div>
+		<div class="activity">
+			<div class="activity-detail">
+				<div class="activity-name">2023繽紛耶誕玩台北｜北投區</div>
+				<div class="activity-date">2023-11-17 ~ 2024-01-01</div>
+			</div>
+			<div class="activity-detail">
+				<div class="activity-name">2023繽紛耶誕玩台北｜北投區</div>
+				<div class="activity-date">2023-11-17 ~ 2024-01-01</div>
+			</div>
+			<div class="activity-detail">
+				<div class="activity-name">2023繽紛耶誕玩台北｜北投區</div>
+				<div class="activity-date">2023-11-17 ~ 2024-01-01</div>
+			</div>
+			<div class="activity-detail">
+				<div class="activity-name">2023繽紛耶誕玩台北｜北投區</div>
+				<div class="activity-date">2023-11-17 ~ 2024-01-01</div>
+			</div>
+			<div class="activity-detail">
+				<div class="activity-name">2023繽紛耶誕玩台北｜北投區</div>
+				<div class="activity-date">2023-11-17 ~ 2024-01-01</div>
+			</div>
 
-		<div class="activity-detail">
-			<div class="activity-name">2023繽紛耶誕玩台北｜北投區</div>
-			<div class="activity-date">2023-11-17 ~ 2024-01-01</div>
-		</div>
-
-		<div class="activity-detail">
-			<div class="activity-name">2023繽紛耶誕玩台北｜北投區</div>
-			<div class="activity-date">2023-11-17 ~ 2024-01-01</div>
-		</div>
-
-		<div class="activity-detail">
-			<div class="activity-name">2023繽紛耶誕玩台北｜北投區</div>
-			<div class="activity-date">2023-11-17 ~ 2024-01-01</div>
 		</div>
 	</div>
 </template>
 
 <style scoped lang="scss">
 .activity {
+
+	font-size: var(--font-s);
+
 	&-detail {
 		padding: calc(var(--font-m) / 2);
 		background-color: #4d4d4d;
