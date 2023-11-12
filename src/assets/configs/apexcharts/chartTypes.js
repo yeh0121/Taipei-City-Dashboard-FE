@@ -13,4 +13,5 @@ export const chartTypes = {
 	HeatmapChart: "熱力圖", // [V] V
 	PolarChart: "極座標圖", // []
 	WordcloudChart: "文字雲", // []
+	TimelineExplorer: "時間軸",
 };
