@@ -1,12 +1,12 @@
 <!-- Developed by Taipei Urban Intelligence Center 2023 -->
 
 <script setup>
-const props = defineProps([
-	"chart_config",
-	"activeChart",
-	"series",
-	"map_config",
-]);
+// const props = defineProps([
+// 	"chart_config",
+// 	"activeChart",
+// 	"series",
+// 	"map_config",
+// ]);
 </script>
 
 <template>
