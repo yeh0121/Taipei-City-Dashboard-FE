@@ -4334,10 +4334,15 @@
 				}
 			],
 			"chart_config": {
-				"types": ["DistrictChart", "RadarChart", "ColumnChart"],
+				"types": [
+					"DistrictChart",
+					"RadarChart",
+					"ColumnChart",
+					"TimelineExplorer"
+				],
 				"color": ["#5FAD75"],
 				"unit": "座",
-				"source": "http://localhost:3000/api/playground",
+
 				"map_filter": [
 					"dist",
 					[
