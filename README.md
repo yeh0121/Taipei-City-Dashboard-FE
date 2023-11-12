@@ -1,7 +1,8 @@
 clone 之後：
 
 1. 加.env 檔
-2. 執行以下指令
+2. 執行以下指令舉雙手投降
+3. 
 
 ```bash
 npm install
