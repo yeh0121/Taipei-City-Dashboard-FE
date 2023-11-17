@@ -148,13 +148,8 @@ export const useContentStore = defineStore("content", {
 		// Will call an additional API if the component has history data
 		setCurrentDashboardChartData() {
 			this.currentDashboard.content.forEach((component, index) => {
-				const chartDataSource = this.currentDashboard.content[index]
-					.chart_config.source
-					? this.currentDashboard.content[index].chart_config.source
-					: `/chartData/${component.id}.json`;
-
 				axios
-					.get(chartDataSource)
+					.get(`${BASE_URL}/chartData/${component.id}.json`)
 					.then((rs) => {
 						this.currentDashboard.content[index].chart_data =
 							rs.data.data;

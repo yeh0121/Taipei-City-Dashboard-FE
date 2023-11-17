@@ -13,8 +13,6 @@ cd ..
 npm run dev
 ```
 
-merge test
-
 # <img src='src/assets/images/TUIC.svg' height='28'> Taipei City Dashboard Open Source FE
 
 ## Taipei Codefest 2023
