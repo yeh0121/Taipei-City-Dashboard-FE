@@ -1,5 +1,3 @@
-<!-- Developed by Taipei Urban Intelligence Center 2023 -->
-
 <script setup>
 import { ref, onMounted, watch } from "vue";
 
@@ -10,32 +8,18 @@ const props = defineProps([
 	"map_config",
 ]);
 
-// const maxYear = ref(0);
-// const minYear = ref(0);
+const rangeLimit = ref({
+	minYear: 0,
+	maxYear: 0,
+});
 
-// for (let i = 0; i < props.series[0].data.length; i++) {
-// 	if (i == 0) {
-// 		maxYear = props.series[0].data[i].x;
-// 		minYear = props.series[0].data[i].x;
-// 	}
-// 	if (props.series[0].data[i].year > maxYear) {
-// 		maxYear = props.series[0].data[i].x;
-// 	}
-// 	if (props.series[0].data[i].year < minYear) {
-// 		minYear = props.series[0].data[i].x;
-// 	}
-// }
+const yearArray = [];
 
-// props.series.forEach((serie) => {
-// 	maxYear = serie.x;
-// 	minYear = serie.x;
-// });
-
-console.log(props.series[0].data, 222);
-// console.log(props.chart_config);
-
-// const secondObject = ProxyArray[1];
-// console.log(secondObject);
+props.series[0].data.forEach((year) => {
+	yearArray.push(parseInt(year.x));
+});
+rangeLimit.value.minYear = Math.min(...yearArray);
+rangeLimit.value.maxYear = Math.max(...yearArray);
 
 const currentTime = ref("");
 
@@ -45,19 +29,18 @@ onMounted(() => {
 		currentTime.value = currentDate.getTime(); // 可以根据需要调整时间格式
 	};
 	getCurrentTime();
-	console.log(currentTime.value);
 
 	return {
 		currentTime,
 	};
 });
 
-const date1 = ref("105");
-const date2 = ref("115");
+const date1 = ref(rangeLimit.value.minYear);
+const date2 = ref(rangeLimit.value.maxYear);
 date1.value = currentTime.value;
 
-const minRange = ref(105);
-const maxRange = ref(115);
+const minRange = ref(rangeLimit.value.minYear);
+const maxRange = ref(rangeLimit.value.maxYear);
 
 const updateSliderValue1 = (event) => {
 	minRange.value = event.target.value;
@@ -70,19 +53,21 @@ const updateSliderValue2 = (event) => {
 watch(minRange, (newValue) => {
 	if (minRange.value < maxRange.value) {
 		date1.value = newValue;
-		console.log("Slider 1 value:", newValue);
+		//min
+		console.log("Slider 1 value:", newValue, 73);
 	} else {
 		date2.value = newValue;
-		console.log("Slider 1 value:", newValue);
+		console.log("Slider 1 value:", newValue, 76);
 	}
 });
 watch(maxRange, (newValue) => {
 	if (minRange.value < maxRange.value) {
 		date2.value = newValue;
-		console.log("Slider 2 value:", newValue);
+		//max
+		console.log("Slider 2 value:", newValue, 81);
 	} else {
 		date1.value = newValue;
-		console.log("Slider 2 value:", newValue);
+		console.log("Slider 2 value:", newValue, 85);
 	}
 });
 </script>
@@ -96,10 +81,10 @@ watch(maxRange, (newValue) => {
 				type="range"
 				v-model="minRange"
 				@input="updateSliderValue1"
-				min="105"
-				max="115"
+				:min="rangeLimit.minYear"
+				:max="rangeLimit.maxYear"
 				step="1"
-				style="width: 100%; z-index: 50"
+				style="width: 100%"
 			/>
 			<input
 				id="range-btn-2"
@@ -107,10 +92,10 @@ watch(maxRange, (newValue) => {
 				type="range"
 				v-model="maxRange"
 				@input="updateSliderValue2"
-				min="105"
-				max="115"
+				:min="rangeLimit.minYear"
+				:max="rangeLimit.maxYear"
 				step="1"
-				style="width: 100%; z-index: 50"
+				style="width: 100%"
 			/>
 		</div>
 		<div class="timeline-bg"></div>

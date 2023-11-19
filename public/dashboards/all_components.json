@@ -4077,316 +4077,389 @@
 				"https://github.com/tpe-doit/YouBike-Optimization"
 			],
 			"contributors": ["tuic"]
-		}
-	},
-	"150": {
-		"id": 150,
-		"index": "playground",
+		},
 
-		"map_config": [
-			{
-				"source": "/api/data",
-				"index": "heal_aed",
-				"paint": {
-					"circle-color": "#5FAD75"
-				},
-				"property": [
-					{
-						"key": "name",
-						"name": "地點"
-					},
-					{
-						"key": "dist",
-						"name": "行政區"
-					},
-					{
-						"key": "addr",
-						"name": "地址"
-					}
-				],
-				"type": "circle",
-				"title": "共融式遊戲場"
-			}
-		],
-		"chart_config": {
-			"types": ["DistrictChart", "RadarChart", "ColumnChart"],
-			"color": ["#5FAD75"],
-			"unit": "座",
+		"150": {
+			"id": 150,
+			"index": "playground",
 
-			"map_filter": [
-				"dist",
-				[
-					"北投區",
-					"士林區",
-					"內湖區",
-					"南港區",
-					"松山區",
-					"信義區",
-					"中山區",
-					"大同區",
-					"中正區",
-					"萬華區",
-					"大安區",
-					"文山區"
-				]
-			]
-		},
-		"name": "共融式遊戲場",
-		"source": "社會局",
-		"time_from": null,
-		"time_to": null,
-		"update_freq": null,
-		"update_freq_unit": null,
-		"short_desc": "顯示當前共融式遊戲場分佈地點",
-		"long_desc": "顯示當前共融式遊戲場分佈地點，資料來源為台北市社會局公開資料，每月更新。",
-		"use_case": "透過台北市社會局公開資料，我們能了解當前共融式遊戲場分布情形，提供家長選擇親子休閒娛樂地點時的參考依據。",
-		"links": [
-			"https://data.taipei/dataset/detail?id=cd050577-115f-4299-b37a-012ff490a632"
-		],
-		"tags": [],
-		"contributors": ["tuic"]
-	},
-	"913": {
-		"id": 913,
-		"index": "gender_quality_eduation_activity",
-
-		"map_config": [
-			{
-				"index": "gender_activity",
-				"paint": {
-					"circle-color": "#5FAD75"
-				},
-				"property": [
-					{
-						"key": "year",
-						"name": "年份"
+			"map_config": [
+				{
+					"source": "/api/data",
+					"index": "heal_aed",
+					"paint": {
+						"circle-color": "#5FAD75"
 					},
-					{
-						"key": "topic",
-						"name": "主題"
-					},
-					{
-						"key": "main",
-						"name": "主軸"
-					}
-				],
-				"type": "circle",
-				"title": "性別平等教育活動"
-			}
-		],
-		"chart_config": {
-			"types": ["TimelineExplorer"],
-			"color": ["#6dd3ff"],
-			"unit": ""
-		},
-		"name": "性別平等教育活動",
-		"source": "性別平等教育委員會",
-		"time_from": null,
-		"time_to": null,
-		"update_freq": null,
-		"update_freq_unit": null,
-		"short_desc": "顯示近年性別平等教育活動主題與內容",
-		"long_desc": "顯示近年性別平等教育活動主題與內容，資料來源為台北市性別平等教育委員會公開資料，每年更新。",
-		"use_case": "透過台北市性別平等教育委員會公開資料，讓市政人員及民眾了解性別平等教育方向。",
-		"links": [
-			"https://data.taipei/dataset/detail?id=cd050577-115f-4299-b37a-012ff490a632"
-		],
-		"tags": [],
-		"contributors": ["tuic"]
-	},
-	"914": {
-		"id": 914,
-		"index": "政府各機關男女對比",
-		"map_config": [
-			{
-				"index": "atry",
-				"paint": {
-					"circle-color": [
-						"match",
-						["get", "type"],
-						"1",
-						"#CA0020",
-						"2",
-						"#ff996d",
-						"3",
-						"#f8c3ac",
-						"#ccc"
-					]
-				},
-				"property": [
-					{
-						"key": "location",
-						"name": "位置"
-					},
-					{
-						"key": "type",
-						"name": "處理別"
-					},
-					{
-						"key": "occur_time",
-						"name": "時間"
-					}
-				],
-				"type": "atry",
-				"size": null,
-				"title": "政府各機關男女對比"
-			}
-		],
-		"chart_config": {
-			"color": ["#6666ff", "#ff4dc4"],
-			"types": ["DonutChart", "BarChart"],
-			"unit": "個",
-			"map_filter": ["type", ["1", "2", "3"]]
-		},
-		"history_data": null,
-		"source": "人事處",
-		"time_from": "2023-01-31T14:01:00Z",
-		"time_to": null,
-		"update_freq": null,
-		"update_freq_unit": null,
-		"name": "政府各機關男女對比",
-		"short_desc": "xxx",
-		"long_desc": "xxx",
-		"use_case": "xxx",
-		"links": [
-			"https://data.taipei/dataset/detail?id=3f80d60e-6fa3-47bd-899a-e2201985d6cf"
-		],
-		"tags": [],
-		"contributors": ["tuic"]
-	},
-	"915": {
-		"id": 915,
-		"index": "性別平等工作法每年發生數量",
-		"history_data": false,
-		"map_config": null,
-		"chart_config": {
-			"color": ["#FD5696", "#00A9E0"],
-			"types": ["TimelineSeparateChart"],
-			"unit": "件"
-		},
-		"name": "性別平等工作法每年發生數量",
-		"source": "勞動局",
-		"time_from": "2023-01-01T23:59:59+08:00",
-		"time_to": "2023-05-01T23:59:59+08:00",
-		"update_freq": 1,
-		"update_freq_unit": "month",
-		"short_desc": "xxx",
-		"long_desc": "xxx",
-		"use_case": "xxx",
-		"links": [
-			"https://data.taipei/dataset/detail?id=12f3421a-94f4-4a5e-8642-143dee2fa551"
-		],
-		"tags": [],
-		"contributors": ["tuic"]
-	},
-	"916": {
-		"id": 916,
-		"index": "婦幼安全警示地點",
-		"map_config": [
-			{
-				"index": "btry",
-				"paint": {
-					"heatmap-color": [
-						"interpolate",
-						["linear"],
-						["heatmap-density"],
-						0,
-						"rgba(33,102,172,0)",
-						0.2,
-						"#ffcce6",
-						0.4,
-						"#ff66b5",
-						0.6,
-						"#FD5696",
-						0.8,
-						"#ffffff",
-						1,
-						"#ffffff"
-					]
-				},
-				"property": [
-					{
-						"key": "dist",
-						"name": "行政區"
-					},
-					{
-						"key": "light_count",
-						"name": "數量"
-					}
-				],
-				"type": "heatmap",
-				"size": "small",
-				"title": "警示地點"
-			}
-		],
-		"chart_config": {
-			"types": ["DistrictChart", "ColumnChart"],
-			"color": ["#FD5696"],
-			"unit": "處",
-			"map_filter": [
-				"dist",
-				[
-					"北投區",
-					"士林區",
-					"內湖區",
-					"南港區",
-					"松山區",
-					"信義區",
-					"中山區",
-					"大同區",
-					"中正區",
-					"萬華區",
-					"大安區",
-					"文山區"
-				]
-			]
-		},
-		"name": "婦幼安全警示地點",
-		"source": "警察局婦幼隊",
-		"time_from": null,
-		"time_to": null,
-		"update_freq": null,
-		"update_freq_unit": null,
-		"short_desc": "xxx",
-		"long_desc": "xxx",
-		"use_case": "xxx",
-		"links": [
-			"https://data.taipei/dataset/detail?id=985743f7-a33e-4ac1-ad2e-7ef5ffea02e2"
-		],
-		"tags": [],
-		"contributors": ["tuic"]
-	},
-	"917": {
-		"id": 917,
-		"index": "男女教育程度",
-		"map_config": null,
-		"history_data": true,
-		"chart_config": {
-			"categories": [
-				"博士畢業",
-				"碩士畢業",
-				"大學畢業",
-				"專科畢業",
-				"高中畢業",
-				"國中畢業",
-				"國小畢業以下"
+					"property": [
+						{
+							"key": "name",
+							"name": "地點"
+						},
+						{
+							"key": "dist",
+							"name": "行政區"
+						},
+						{
+							"key": "addr",
+							"name": "地址"
+						}
+					],
+					"type": "circle",
+					"title": "共融式遊戲場"
+				}
 			],
-			"types": ["ColumnChart"],
-			"color": ["#6666ff", "#ff4dc4", "#D63940", "#9C2A4B"],
-			"unit": "人"
+			"chart_config": {
+				"types": ["DistrictChart", "RadarChart", "ColumnChart"],
+				"color": ["#5FAD75"],
+				"unit": "座",
+
+				"map_filter": [
+					"dist",
+					[
+						"北投區",
+						"士林區",
+						"內湖區",
+						"南港區",
+						"松山區",
+						"信義區",
+						"中山區",
+						"大同區",
+						"中正區",
+						"萬華區",
+						"大安區",
+						"文山區"
+					]
+				]
+			},
+			"name": "共融式遊戲場",
+			"source": "社會局",
+			"time_from": null,
+			"time_to": null,
+			"update_freq": null,
+			"update_freq_unit": null,
+			"short_desc": "顯示當前共融式遊戲場分佈地點",
+			"long_desc": "顯示當前共融式遊戲場分佈地點，資料來源為台北市社會局公開資料，每月更新。",
+			"use_case": "透過台北市社會局公開資料，我們能了解當前共融式遊戲場分布情形，提供家長選擇親子休閒娛樂地點時的參考依據。",
+			"links": [
+				"https://data.taipei/dataset/detail?id=cd050577-115f-4299-b37a-012ff490a632"
+			],
+			"tags": [],
+			"contributors": ["tuic"]
 		},
-		"name": "男女教育程度",
-		"source": "民政局",
-		"time_from": "2023-07-28T00:00:00+08:00",
-		"update_freq": null,
-		"update_freq_unit": null,
-		"short_desc": "xxx",
-		"long_desc": "xxx",
-		"use_case": "xxx",
-		"links": [
-			"https://data.taipei/dataset/detail?id=e23346ae-da02-461d-b42b-18a60a1870d5"
-		],
-		"tags": [],
-		"contributors": ["tuic"]
+		"912": {
+			"id": 912,
+			"index": "year_to_gender_equality_history",
+
+			"map_config": null,
+			"chart_config": {
+				"types": ["TimelineExplorer"],
+				"color": ["#6dd3ff"],
+				"unit": ""
+			},
+			"name": "性別平等大事記",
+			"source": "性別平等教育委員會",
+			"time_from": null,
+			"time_to": null,
+			"update_freq": null,
+			"update_freq_unit": null,
+			"short_desc": "顯示性別平等大事記",
+			"long_desc": "顯示近年性別平等教育活動主題與內容，資料來源為台北市性別平等教育委員會公開資料，每年更新。",
+			"use_case": "透過台北市性別平等教育委員會公開資料，讓市政人員及民眾了解性別平等教育方向。",
+			"links": [
+				"https://data.taipei/dataset/detail?id=cd050577-115f-4299-b37a-012ff490a632"
+			],
+			"tags": [],
+			"contributors": ["tuic"]
+		},
+		"913": {
+			"id": 913,
+			"index": "gender_quality_eduation_activity",
+
+			"map_config": null,
+			"chart_config": {
+				"types": ["TimelineExplorer"],
+				"color": ["#6dd3ff"],
+				"unit": ""
+			},
+			"name": "性別平等教育活動",
+			"source": "性別平等教育委員會",
+			"time_from": null,
+			"time_to": null,
+			"update_freq": null,
+			"update_freq_unit": null,
+			"short_desc": "顯示近年性別平等教育活動主題與內容",
+			"long_desc": "顯示近年性別平等教育活動主題與內容，資料來源為台北市性別平等教育委員會公開資料，每年更新。",
+			"use_case": "透過台北市性別平等教育委員會公開資料，讓市政人員及民眾了解性別平等教育方向。",
+			"links": [
+				"https://data.taipei/dataset/detail?id=cd050577-115f-4299-b37a-012ff490a632"
+			],
+			"tags": [],
+			"contributors": ["tuic"]
+		},
+		"914": {
+			"id": 914,
+			"index": "政府機關員工性別對比",
+			"map_config": [
+				{
+					"index": "atry",
+					"paint": {
+						"circle-color": [
+							"match",
+							["get", "type"],
+							"1",
+							"#CA0020",
+							"2",
+							"#ff996d",
+							"3",
+							"#f8c3ac",
+							"#ccc"
+						]
+					},
+					"property": [
+						{
+							"key": "location",
+							"name": "位置"
+						},
+						{
+							"key": "type",
+							"name": "處理別"
+						},
+						{
+							"key": "occur_time",
+							"name": "時間"
+						}
+					],
+					"type": "atry",
+					"size": null,
+					"title": "政府機關員工性別對比"
+				}
+			],
+			"chart_config": {
+				"color": ["#6666ff", "#ff4dc4"],
+				"types": ["DonutChart", "BarChart"],
+				"unit": "個",
+				"map_filter": ["type", ["1", "2", "3"]]
+			},
+			"history_data": null,
+			"source": "人事處",
+			"time_from": "2023-01-31T14:01:00Z",
+			"time_to": null,
+			"update_freq": null,
+			"update_freq_unit": null,
+			"name": "政府機關員工性別對比",
+			"short_desc": "xxx",
+			"long_desc": "xxx",
+			"use_case": "xxx",
+			"links": [
+				"https://data.taipei/dataset/detail?id=3f80d60e-6fa3-47bd-899a-e2201985d6cf"
+			],
+			"tags": [],
+			"contributors": ["tuic"]
+		},
+		"915": {
+			"id": 915,
+			"index": "性別平等工作法每年發生數量",
+			"history_data": false,
+			"map_config": null,
+			"chart_config": {
+				"color": ["#E4852D", "#00A9E0"],
+				"types": ["TimelineSeparateChart"],
+				"unit": "件"
+			},
+			"name": "性別平等工作法每年發生數量",
+			"source": "勞動局",
+			"time_from": "2023-01-01T23:59:59+08:00",
+			"time_to": "2023-05-01T23:59:59+08:00",
+			"update_freq": 1,
+			"update_freq_unit": "month",
+			"short_desc": "xxx",
+			"long_desc": "xxx",
+			"use_case": "xxx",
+			"links": [
+				"https://data.taipei/dataset/detail?id=12f3421a-94f4-4a5e-8642-143dee2fa551"
+			],
+			"tags": [],
+			"contributors": ["tuic"]
+		},
+		"916": {
+			"id": 916,
+			"index": "婦幼安全警示地點",
+			"map_config": [
+				{
+					"index": "btry",
+					"paint": {
+						"heatmap-color": [
+							"interpolate",
+							["linear"],
+							["heatmap-density"],
+							0,
+							"rgba(33,102,172,0)",
+							0.2,
+							"#ffcce6",
+							0.4,
+							"#ff66b5",
+							0.6,
+							"#FD5696",
+							0.8,
+							"#ffffff",
+							1,
+							"#ffffff"
+						]
+					},
+					"property": [
+						{
+							"key": "dist",
+							"name": "行政區"
+						},
+						{
+							"key": "light_count",
+							"name": "數量"
+						}
+					],
+					"type": "heatmap",
+					"size": "small",
+					"title": "警示地點"
+				}
+			],
+			"chart_config": {
+				"types": ["DistrictChart", "ColumnChart"],
+				"color": ["#FD5696"],
+				"unit": "處",
+				"map_filter": [
+					"dist",
+					[
+						"北投區",
+						"士林區",
+						"內湖區",
+						"南港區",
+						"松山區",
+						"信義區",
+						"中山區",
+						"大同區",
+						"中正區",
+						"萬華區",
+						"大安區",
+						"文山區"
+					]
+				]
+			},
+			"name": "婦幼安全警示地點",
+			"source": "警察局婦幼隊",
+			"time_from": null,
+			"time_to": null,
+			"update_freq": null,
+			"update_freq_unit": null,
+			"short_desc": "xxx",
+			"long_desc": "xxx",
+			"use_case": "xxx",
+			"links": [
+				"https://data.taipei/dataset/detail?id=985743f7-a33e-4ac1-ad2e-7ef5ffea02e2"
+			],
+			"tags": [],
+			"contributors": ["tuic"]
+		},
+		"917": {
+			"id": 917,
+			"index": "男女教育程度",
+			"map_config": null,
+			"history_data": true,
+			"chart_config": {
+				"categories": [
+					"博士畢業",
+					"碩士畢業",
+					"大學畢業",
+					"專科畢業",
+					"高中畢業",
+					"國中畢業",
+					"國小畢業以下"
+				],
+				"types": ["ColumnChart"],
+				"color": ["#6666ff", "#ff4dc4", "#D63940", "#9C2A4B"],
+				"unit": "人"
+			},
+			"name": "男女教育程度",
+			"source": "民政局",
+			"time_from": "2023-07-28T00:00:00+08:00",
+			"update_freq": null,
+			"update_freq_unit": null,
+			"short_desc": "xxx",
+			"long_desc": "xxx",
+			"use_case": "xxx",
+			"links": [
+				"https://data.taipei/dataset/detail?id=e23346ae-da02-461d-b42b-18a60a1870d5"
+			],
+			"tags": [],
+			"contributors": ["tuic"]
+		},
+		"918": {
+			"id": 918,
+			"index": "男女每年平均所得",
+			"history_data": false,
+			"map_config": null,
+			"chart_config": {
+				"color": ["#FD5696", "#FFA53E", "#00A9E0"],
+				"types": ["TimelineSeparateChart"],
+				"unit": "件"
+			},
+			"name": "男女每年平均所得",
+			"source": "臺北總計處",
+			"time_from": "2023-01-01T23:59:59+08:00",
+			"time_to": "2023-05-01T23:59:59+08:00",
+			"update_freq": 1,
+			"update_freq_unit": "month",
+			"short_desc": "xxx",
+			"long_desc": "xxx",
+			"use_case": "xxx",
+			"links": [
+				"https://data.taipei/dataset/detail?id=d2f5071b-1e1b-4546-9298-3aa0da4a05f1"
+			],
+			"tags": [],
+			"contributors": ["tuic"]
+		},
+		"919": {
+			"id": 919,
+			"index": "ctry",
+			"map_config": [
+				{
+					"index": "ctry",
+					"property": [
+						{
+							"key": "location",
+							"name": "位置"
+						}
+					],
+					"type": "symbol",
+					"icon": "toilet",
+					"title": "臺北市性別友善廁所"
+				}
+			],
+			"chart_config": {
+				"types": ["MapLegend"]
+			},
+			"chart_data": [
+				{
+					"type": "symbol",
+					"color": null,
+					"name": "性別友善廁所",
+					"value": null,
+					"icon": "toilet"
+				}
+			],
+			"history_data": null,
+			"source": "臺北市性別友善廁所",
+			"time_from": "2023-01-31T14:01:00Z",
+			"time_to": null,
+			"update_freq": null,
+			"update_freq_unit": null,
+			"name": "臺北市性別友善廁所",
+			"short_desc": "xxx",
+			"long_desc": "xxx",
+			"use_case": "xxx",
+			"links": [
+				"https://www.google.com.tw/maps/d/u/0/viewer?ll=25.065375303268958%2C121.5297229815842&z=18&mid=1Zj8rvlar0WRCNalwTb3eNa855MjJhwCy"
+			],
+			"tags": [],
+			"contributors": ["tuic"]
+		}
 	}
 }
