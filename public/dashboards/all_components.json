@@ -4078,5 +4078,120 @@
 			],
 			"contributors": ["tuic"]
 		}
+	},
+	"150": {
+		"id": 150,
+		"index": "playground",
+
+		"map_config": [
+			{
+				"source": "/api/data",
+				"index": "heal_aed",
+				"paint": {
+					"circle-color": "#5FAD75"
+				},
+				"property": [
+					{
+						"key": "name",
+						"name": "地點"
+					},
+					{
+						"key": "dist",
+						"name": "行政區"
+					},
+					{
+						"key": "addr",
+						"name": "地址"
+					}
+				],
+				"type": "circle",
+				"title": "共融式遊戲場"
+			}
+		],
+		"chart_config": {
+			"types": ["DistrictChart", "RadarChart", "ColumnChart"],
+			"color": ["#5FAD75"],
+			"unit": "座",
+
+			"map_filter": [
+				"dist",
+				[
+					"北投區",
+					"士林區",
+					"內湖區",
+					"南港區",
+					"松山區",
+					"信義區",
+					"中山區",
+					"大同區",
+					"中正區",
+					"萬華區",
+					"大安區",
+					"文山區"
+				]
+			]
+		},
+		"name": "共融式遊戲場",
+		"source": "社會局",
+		"time_from": null,
+		"time_to": null,
+		"update_freq": null,
+		"update_freq_unit": null,
+		"short_desc": "顯示當前共融式遊戲場分佈地點",
+		"long_desc": "顯示當前共融式遊戲場分佈地點，資料來源為台北市社會局公開資料，每月更新。",
+		"use_case": "透過台北市社會局公開資料，我們能了解當前共融式遊戲場分布情形，提供家長選擇親子休閒娛樂地點時的參考依據。",
+		"links": [
+			"https://data.taipei/dataset/detail?id=cd050577-115f-4299-b37a-012ff490a632"
+		],
+		"tags": [],
+		"contributors": ["tuic"]
+	},
+	"913": {
+		"id": 913,
+		"index": "gender_quality_eduation_activity",
+
+		"map_config": [
+			{
+				"index": "gender_activity",
+				"paint": {
+					"circle-color": "#5FAD75"
+				},
+				"property": [
+					{
+						"key": "year",
+						"name": "年份"
+					},
+					{
+						"key": "topic",
+						"name": "主題"
+					},
+					{
+						"key": "main",
+						"name": "主軸"
+					}
+				],
+				"type": "circle",
+				"title": "性別平等教育活動"
+			}
+		],
+		"chart_config": {
+			"types": ["TimelineExplorer"],
+			"color": ["#6dd3ff"],
+			"unit": ""
+		},
+		"name": "性別平等教育活動",
+		"source": "性別平等教育委員會",
+		"time_from": null,
+		"time_to": null,
+		"update_freq": null,
+		"update_freq_unit": null,
+		"short_desc": "顯示近年性別平等教育活動主題與內容",
+		"long_desc": "顯示近年性別平等教育活動主題與內容，資料來源為台北市性別平等教育委員會公開資料，每年更新。",
+		"use_case": "透過台北市性別平等教育委員會公開資料，讓市政人員及民眾了解性別平等教育方向。",
+		"links": [
+			"https://data.taipei/dataset/detail?id=cd050577-115f-4299-b37a-012ff490a632"
+		],
+		"tags": [],
+		"contributors": ["tuic"]
 	}
 }
