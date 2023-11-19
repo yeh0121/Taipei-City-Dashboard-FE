@@ -75,7 +75,7 @@ export const TaipeiVillage = {
 export const TaipeiBuilding = {
 	id: "taipei_building_3d",
 	source: "taipei_building_3d_source",
-	"source-layer": "tp_building_height84-64f84t",
+	"source-layer": "tp_building_height84-1xmzo2",
 	type: "fill-extrusion",
 	minzoom: 14,
 	paint: {
@@ -239,6 +239,56 @@ export const maplayerCommonPaint = {
 		"line-dasharray": [2, 4],
 	},
 	symbol: {},
+	heatMap: {
+		// 热力点的强度
+		"heatmap-intensity": [
+			"interpolate",
+			["linear"],
+			["zoom"],
+			0,
+			1, // 在最小缩放级别时的强度
+			9,
+			3, // 在更大的缩放级别时的强度
+		],
+		// 热力点的半径
+		"heatmap-radius": [
+			"interpolate",
+			["linear"],
+			["zoom"],
+			0,
+			2, // 在最小缩放级别时的半径
+			9,
+			20, // 在更大的缩放级别时的半径
+		],
+		// 热力点的颜色
+		"heatmap-color": [
+			"interpolate",
+			["linear"],
+			["heatmap-density"],
+			0,
+			"rgba(33,102,172,0)",
+			0.2,
+			"rgb(103,169,207)",
+			0.4,
+			"rgb(209,229,240)",
+			0.6,
+			"rgb(253,219,199)",
+			0.8,
+			"rgb(239,138,98)",
+			1,
+			"rgb(178,24,43)",
+		],
+		// 热力点的透明度
+		"heatmap-opacity": [
+			"interpolate",
+			["linear"],
+			["zoom"],
+			7,
+			1, // 在小缩放级别时完全不透明
+			9,
+			0, // 在大缩放级别时完全透明
+		],
+	},
 };
 
 // Layout Properties

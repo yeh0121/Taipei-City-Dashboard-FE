@@ -55,6 +55,12 @@
 			"icon": "favorite"
 		},
 		{
+			"name": "團隊組件",
+			"index": "a",
+			"components": ["914","915","916","917"],
+			"icon": "favorite"
+		},
+		{
 			"name": "圖資資訊",
 			"index": "map-layers",
 			"components": [
