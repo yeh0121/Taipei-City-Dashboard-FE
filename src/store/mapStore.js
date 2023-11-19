@@ -122,6 +122,7 @@ export const useMapStore = defineStore("map", {
 				"bike_green",
 				"bike_orange",
 				"bike_red",
+				"toilet",
 			];
 			images.forEach((element) => {
 				this.map.loadImage(
@@ -351,16 +352,28 @@ export const useMapStore = defineStore("map", {
 						for (let event of events) {
 							const radius = 50; // 圆柱体半径
 							const height = 300; // 圆柱体高度
-							const malePercentage = Math.round(event.geometry.malePercentage); // 男性比例
-							const fromHeight = height / 100 * malePercentage; 
+							const malePercentage = Math.round(
+								event.geometry.malePercentage
+							); // 男性比例
 							const coordinates = [
 								event.geometry.coordinates[0],
 								event.geometry.coordinates[1],
 							];
-							// 初始高度偏移量
+							// 初始高度偏移量]
+
 							let yOffset = 0;
+
+							let segmentGroup = new THREE.Group();
+
+							// 绕 X 轴旋转圆柱体90度，使其水平
+							segmentGroup.rotation.x = Math.PI / 2;
+
 							for (let i = 1; i <= 2; i++) {
-								const segmentHeight = i == 1 ? height / 100 * malePercentage : height / 100 * (100 - malePercentage);
+								const segmentHeight =
+									i == 1
+										? (height / 100) * malePercentage
+										: (height / 100) *
+										  (100 - malePercentage);
 								let materialColor =
 									i == 1 ? "#6666ff" : "#ff4dc4";
 								let material = new THREE.MeshBasicMaterial({
@@ -375,29 +388,31 @@ export const useMapStore = defineStore("map", {
 										segmentHeight,
 										32
 									);
+
 								// 创建圆柱体的一个部分
 								let segment = new THREE.Mesh(
 									segmentGeometry,
 									material
 								);
-								segment.rotation.x += Math.PI / 2;
+
 								// 设置每个部分的位置
 								segment.position.set(
 									0,
-									0,
-									-(height / 2 + 300) +
-										(yOffset + segmentHeight / 2)
+									yOffset + segmentHeight / 2,
+									0
 								);
+
 								yOffset += segmentHeight;
 
 								// 将每个部分添加到 Threebox 或 Three.js 场景中
-								const obj = tb.Object3D({
-									obj: segment,
-									units: "meters",
-								});
-								obj.setCoords(coordinates);
-								tb.add(obj);
+								segmentGroup.add(segment);
 							}
+							const obj = tb.Object3D({
+								obj: segmentGroup,
+								units: "meters",
+							});
+							obj.setCoords(coordinates);
+							tb.add(obj);
 						}
 					},
 					render: function () {

@@ -96,12 +96,18 @@
 							"interpolate",
 							["linear"],
 							["heatmap-density"],
-							0, "rgba(33,102,172,0)",
-							0.2, "#ffcce6",
-							0.4, "#ff66b5",
-							0.6, "#FD5696",
-							0.8, "#ffffff",
-							1, "#ffffff"
+							0,
+							"rgba(33,102,172,0)",
+							0.2,
+							"#ffcce6",
+							0.4,
+							"#ff66b5",
+							0.6,
+							"#FD5696",
+							0.8,
+							"#ffffff",
+							1,
+							"#ffffff"
 						]
 					},
 					"property": [
@@ -185,6 +191,76 @@
 			"use_case": "xxx",
 			"links": [
 				"https://data.taipei/dataset/detail?id=e23346ae-da02-461d-b42b-18a60a1870d5"
+			],
+			"tags": [],
+			"contributors": ["tuic"]
+		},
+		"918": {
+			"id": 918,
+			"index": "男女每年平均所得",
+			"history_data": false,
+			"map_config": null,
+			"chart_config": {
+				"color": ["#FD5696", "#00A9E0"],
+				"types": ["TimelineSeparateChart"],
+				"unit": "件"
+			},
+			"name": "男女每年平均所得",
+			"source": "臺北總計處",
+			"time_from": "2023-01-01T23:59:59+08:00",
+			"time_to": "2023-05-01T23:59:59+08:00",
+			"update_freq": 1,
+			"update_freq_unit": "month",
+			"short_desc": "xxx",
+			"long_desc": "xxx",
+			"use_case": "xxx",
+			"links": [
+				"https://data.taipei/dataset/detail?id=d2f5071b-1e1b-4546-9298-3aa0da4a05f1"
+			],
+			"tags": [],
+			"contributors": ["tuic"]
+		},
+		"919": {
+			"id": 919,
+			"index": "ctry",
+			"map_config": [
+				{
+					"index": "ctry",
+					"property": [
+						{
+							"key": "location",
+							"name": "位置"
+						}
+					],
+					"type": "symbol",
+					"icon": "toilet",
+					"title": "臺北市性別友善廁所"
+				}
+			],
+			"chart_config": {
+				"types": ["MapLegend"]
+			},
+			"chart_data": [
+				{
+					"type": "symbol",
+					"color": null,
+					"name": "性別友善廁所",
+					"value": null,
+					"icon": "toilet"
+				}
+			],
+			"history_data": null,
+			"source": "臺北市性別友善廁所",
+			"time_from": "2023-01-31T14:01:00Z",
+			"time_to": null,
+			"update_freq": null,
+			"update_freq_unit": null,
+			"name": "臺北市性別友善廁所",
+			"short_desc": "xxx",
+			"long_desc": "xxx",
+			"use_case": "xxx",
+			"links": [
+				"https://www.google.com.tw/maps/d/u/0/viewer?ll=25.065375303268958%2C121.5297229815842&z=18&mid=1Zj8rvlar0WRCNalwTb3eNa855MjJhwCy"
 			],
 			"tags": [],
 			"contributors": ["tuic"]
