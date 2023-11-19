@@ -56,8 +56,8 @@
 		},
 		{
 			"name": "團隊組件",
-			"index": "a",
-			"components": ["914","915","916","917"],
+			"index": "teamwork",
+			"components": ["914", "915", "916", "917"],
 			"icon": "favorite"
 		},
 		{
