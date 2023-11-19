@@ -10,8 +10,8 @@ const props = defineProps([
 	"map_config",
 ]);
 
-const maxYear = ref(0);
-const minYear = ref(0);
+// const maxYear = ref(0);
+// const minYear = ref(0);
 
 // for (let i = 0; i < props.series[0].data.length; i++) {
 // 	if (i == 0) {
@@ -26,10 +26,10 @@ const minYear = ref(0);
 // 	}
 // }
 
-props.series.forEach((serie) => {
-	maxYear = serie.x;
-	minYear = serie.x;
-});
+// props.series.forEach((serie) => {
+// 	maxYear = serie.x;
+// 	minYear = serie.x;
+// });
 
 console.log(props.series[0].data, 222);
 // console.log(props.chart_config);
