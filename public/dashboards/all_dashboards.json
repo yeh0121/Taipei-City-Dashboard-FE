@@ -3,7 +3,7 @@
 		{
 			"name": "YouBike研究",
 			"index": "youbike",
-			"components": ["60", "142", "143", "144", "145", "146", "147", "915"],
+			"components": ["60", "142", "143", "144", "145", "146", "147"],
 			"icon": "pedal_bike"
 		},
 		{
@@ -52,6 +52,12 @@
 			"name": "收藏組件",
 			"index": "favorites",
 			"components": ["108", "22", "79", "60", "107"],
+			"icon": "favorite"
+		},
+		{
+			"name": "團隊組件",
+			"index": "a",
+			"components": ["914","915","916","917"],
 			"icon": "favorite"
 		},
 		{

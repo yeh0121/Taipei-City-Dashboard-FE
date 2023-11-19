@@ -27,6 +27,7 @@ import {
 import { savedLocations } from "../assets/configs/mapbox/savedLocations.js";
 import { calculateGradientSteps } from "../assets/configs/mapbox/arcGradient";
 import MapPopup from "../components/map/MapPopup.vue";
+import { THREE } from "threebox-plugin";
 
 const { BASE_URL } = import.meta.env;
 
@@ -177,7 +178,7 @@ export const useMapStore = defineStore("map", {
 			});
 			if (map_config.type === "arc") {
 				this.AddArcMapLayer(map_config, data);
-			} else if (map_config.type === "atry"){
+			} else if (map_config.type === "atry") {
 				this.addAtryMapLayer(map_config, data);
 			} else {
 				this.addMapLayer(map_config);
@@ -312,7 +313,6 @@ export const useMapStore = defineStore("map", {
 							let lineMesh = tb.line(lineOptions);
 							lineMesh.geometry.setColors(gradientSteps);
 							lineMesh.material.vertexColors = true;
-
 							tb.add(lineMesh);
 						}
 					},
@@ -331,17 +331,17 @@ export const useMapStore = defineStore("map", {
 		addAtryMapLayer(map_config, data) {
 			const authStore = useAuthStore();
 			const events = [...JSON.parse(JSON.stringify(data.features))];
-		
+
 			this.loadingLayers.push("rendering");
-		
+
 			const tb = (window.tb = new Threebox(
 				this.map,
 				this.map.getCanvas().getContext("webgl"),
 				{ defaultLights: true }
 			));
-		
+
 			const delay = authStore.isMobileDevice ? 2000 : 500;
-		
+
 			setTimeout(() => {
 				this.map.addLayer({
 					id: map_config.layerId,
@@ -349,31 +349,55 @@ export const useMapStore = defineStore("map", {
 					renderingMode: "3d",
 					onAdd: function (map, gl) {
 						for (let event of events) {
-							// 计算椭圆形路径的坐标点
-							const points = [];
-							for (let i = 0; i <= 50; i++) {
-								const angle = (2 * Math.PI / 50) * i;
-								const x = event.geometry.coordinates[0][0] + 10 * Math.cos(angle);
-								const y = event.geometry.coordinates[0][1] + 5 * Math.sin(angle);
-								points.push([x, y, 100]);
+							const radius = 50; // 圆柱体半径
+							const height = 300; // 圆柱体高度
+							const malePercentage = Math.round(event.geometry.malePercentage); // 男性比例
+							const fromHeight = height / 100 * malePercentage; 
+							const coordinates = [
+								event.geometry.coordinates[0],
+								event.geometry.coordinates[1],
+							];
+							// 初始高度偏移量
+							let yOffset = 0;
+							for (let i = 1; i <= 2; i++) {
+								const segmentHeight = i == 1 ? height / 100 * malePercentage : height / 100 * (100 - malePercentage);
+								let materialColor =
+									i == 1 ? "#6666ff" : "#ff4dc4";
+								let material = new THREE.MeshBasicMaterial({
+									color: materialColor,
+								});
+
+								// 创建每个部分的圆柱几何体
+								let segmentGeometry =
+									new THREE.CylinderGeometry(
+										radius,
+										radius,
+										segmentHeight,
+										32
+									);
+								// 创建圆柱体的一个部分
+								let segment = new THREE.Mesh(
+									segmentGeometry,
+									material
+								);
+								segment.rotation.x += Math.PI / 2;
+								// 设置每个部分的位置
+								segment.position.set(
+									0,
+									0,
+									-(height / 2 + 300) +
+										(yOffset + segmentHeight / 2)
+								);
+								yOffset += segmentHeight;
+
+								// 将每个部分添加到 Threebox 或 Three.js 场景中
+								const obj = tb.Object3D({
+									obj: segment,
+									units: "meters",
+								});
+								obj.setCoords(coordinates);
+								tb.add(obj);
 							}
-		
-							// Determine color based on event date
-							// const color = eventIsActiveDuring(event.properties.start, event.properties.end) ? '#ff0000' : '#0000ff';
-							
-							// 使用Threebox绘制线条来近似椭圆形
-							console.log(points)
-							const lineOptions = {
-								geometry: points,
-								material: {
-									color: 0xff0000,
-									linewidth: 3
-								}
-							};
-							let lineMesh = tb.line(lineOptions);
-							lineMesh.geometry.setColors("#fd7900");
-							tb.add(lineMesh);
-							console.log(tb)
 						}
 					},
 					render: function () {
@@ -388,7 +412,7 @@ export const useMapStore = defineStore("map", {
 				);
 			}, delay);
 		},
-		
+
 		// Helper function to determine if an event is active during a given period
 		// eventIsActiveDuring(startDate, endDate) {
 		// 	const currentMonth = new Date().getMonth() + 1; // JavaScript months are 0-indexed
@@ -432,6 +456,8 @@ export const useMapStore = defineStore("map", {
 					layers: this.currentVisibleLayers,
 				}
 			);
+			console.log(this.currentVisibleLayers, 332);
+			console.log(clickFeatureDatas, 111);
 			// Return if there is no info in the click
 			if (!clickFeatureDatas || clickFeatureDatas.length === 0) {
 				return;
@@ -531,6 +557,17 @@ export const useMapStore = defineStore("map", {
 				map_config.layerId = layer_id;
 				this.AddArcMapLayer(map_config, toBeFiltered);
 				return;
+			} else if (map_config && map_config.type === "atry") {
+				this.map.removeLayer(layer_id);
+				let toBeFiltered = {
+					...this.map.getSource(`${layer_id}-source`)._data,
+				};
+				toBeFiltered.features = toBeFiltered.features.filter(
+					(el) => el.properties[property] === key
+				);
+				map_config.layerId = layer_id;
+				this.addAtryMapLayer(map_config, toBeFiltered);
+				return;
 			}
 			this.map.setFilter(layer_id, ["==", ["get", property], key]);
 		},
@@ -546,6 +583,14 @@ export const useMapStore = defineStore("map", {
 				};
 				map_config.layerId = layer_id;
 				this.AddArcMapLayer(map_config, toRestore);
+				return;
+			} else if (map_config && map_config.type === "atry") {
+				this.map.removeLayer(layer_id);
+				let toRestore = {
+					...this.map.getSource(`${layer_id}-source`)._data,
+				};
+				map_config.layerId = layer_id;
+				this.addAtryMapLayer(map_config, toRestore);
 				return;
 			}
 			this.map.setFilter(layer_id, null);

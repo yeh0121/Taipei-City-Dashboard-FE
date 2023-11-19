@@ -1,50 +1,130 @@
 {
 	"data": {
+		"914": {
+			"id": 914,
+			"index": "政府各機關男女對比",
+			"map_config": [
+				{
+					"index": "atry",
+					"paint": {
+						"circle-color": [
+							"match",
+							["get", "type"],
+							"1",
+							"#CA0020",
+							"2",
+							"#ff996d",
+							"3",
+							"#f8c3ac",
+							"#ccc"
+						]
+					},
+					"property": [
+						{
+							"key": "location",
+							"name": "位置"
+						},
+						{
+							"key": "type",
+							"name": "處理別"
+						},
+						{
+							"key": "occur_time",
+							"name": "時間"
+						}
+					],
+					"type": "atry",
+					"size": null,
+					"title": "政府各機關男女對比"
+				}
+			],
+			"chart_config": {
+				"color": ["#6666ff", "#ff4dc4"],
+				"types": ["DonutChart", "BarChart"],
+				"unit": "個",
+				"map_filter": ["type", ["1", "2", "3"]]
+			},
+			"history_data": null,
+			"source": "人事處",
+			"time_from": "2023-01-31T14:01:00Z",
+			"time_to": null,
+			"update_freq": null,
+			"update_freq_unit": null,
+			"name": "政府各機關男女對比",
+			"short_desc": "xxx",
+			"long_desc": "xxx",
+			"use_case": "xxx",
+			"links": [
+				"https://data.taipei/dataset/detail?id=3f80d60e-6fa3-47bd-899a-e2201985d6cf"
+			],
+			"tags": [],
+			"contributors": ["tuic"]
+		},
 		"915": {
 			"id": 915,
-			"index": "atry1",
+			"index": "性別平等工作法每年發生數量",
+			"history_data": false,
+			"map_config": null,
 			"chart_config": {
-				"types": ["HeatmapChart"],
-				"categories": [
-					"北投區",
-					"士林區",
-					"內湖區",
-					"南港區",
-					"松山區",
-					"信義區",
-					"中山區",
-					"大同區",
-					"中正區",
-					"萬華區",
-					"大安區",
-					"文山區",
-					"非臺北市"
-				],
-				"color": [
-					"#b9b929",
-					"#87a11a",
-					"#87a11a",
-					"#568811",
-					"#568811",
-					"#568811",
-					"#568811",
-					"#568811",
-					"#568811",
-					"#568811",
-					"#568811",
-					"#568811",
-					"#236e0c",
-					"#236e0c",
-					"#236e0c",
-					"#236e0c",
-					"#236e0c",
-					"#236e0c",
-					"#236e0c",
-					"#666666"
-				],
-				"unit": "百次",
+				"color": ["#FD5696", "#00A9E0"],
+				"types": ["TimelineSeparateChart"],
+				"unit": "件"
+			},
+			"name": "性別平等工作法每年發生數量",
+			"source": "勞動局",
+			"time_from": "2023-01-01T23:59:59+08:00",
+			"time_to": "2023-05-01T23:59:59+08:00",
+			"update_freq": 1,
+			"update_freq_unit": "month",
+			"short_desc": "xxx",
+			"long_desc": "xxx",
+			"use_case": "xxx",
+			"links": [
+				"https://data.taipei/dataset/detail?id=12f3421a-94f4-4a5e-8642-143dee2fa551"
+			],
+			"tags": [],
+			"contributors": ["tuic"]
+		},
+		"916": {
+			"id": 916,
+			"index": "婦幼安全警示地點",
+			"map_config": [
+				{
+					"index": "btry",
+					"paint": {
+						"heatmap-color": [
+							"interpolate",
+							["linear"],
+							["heatmap-density"],
+							0, "rgba(33,102,172,0)",
+							0.2, "#ffcce6",
+							0.4, "#ff66b5",
+							0.6, "#FD5696",
+							0.8, "#ffffff",
+							1, "#ffffff"
+						]
+					},
+					"property": [
+						{
+							"key": "dist",
+							"name": "行政區"
+						},
+						{
+							"key": "light_count",
+							"name": "數量"
+						}
+					],
+					"type": "heatmap",
+					"size": "small",
+					"title": "警示地點"
+				}
+			],
+			"chart_config": {
+				"types": ["DistrictChart", "ColumnChart"],
+				"color": ["#FD5696"],
+				"unit": "處",
 				"map_filter": [
-					"TOWNNAME_source",
+					"dist",
 					[
 						"北投區",
 						"士林區",
@@ -57,32 +137,54 @@
 						"中正區",
 						"萬華區",
 						"大安區",
-						"文山區",
-						"非臺北市"
+						"文山區"
 					]
 				]
 			},
-			"map_config": [
-				{
-					"index": "atry",
-					"paint": {
-						"arc-color": ["#fd7900", "#47d3d9"],
-						"arc-width": 3
-					},
-					"type": "atry",
-					"title": "週間群像"
-				}
-			],
-			"name": "atry",
-			"source": "交通局/Youbike",
-			"time_from": "2023-07-28T00:00:00+08:00",
+			"name": "婦幼安全警示地點",
+			"source": "警察局婦幼隊",
+			"time_from": null,
 			"time_to": null,
-			"short_desc": "",
-			"long_desc": "顯示週末期間全市YouBike的使用情況，並將各交易的起迄點在地圖上視覺化，資料來源為微笑單車公司的交易資料，更新頻率為不定期。",
-			"use_case": "透過YouBike週末群像組件，您可以瀏覽週末期間全市YouBike的使用情況，這對於計畫週末戶外活動或確保在週末時找到可租借的YouBike非常有幫助。",
+			"update_freq": null,
+			"update_freq_unit": null,
+			"short_desc": "xxx",
+			"long_desc": "xxx",
+			"use_case": "xxx",
 			"links": [
-				"https://tuic.gov.taipei/youbike",
-				"https://github.com/tpe-doit/YouBike-Optimization"
+				"https://data.taipei/dataset/detail?id=985743f7-a33e-4ac1-ad2e-7ef5ffea02e2"
+			],
+			"tags": [],
+			"contributors": ["tuic"]
+		},
+		"917": {
+			"id": 917,
+			"index": "男女教育程度",
+			"map_config": null,
+			"history_data": true,
+			"chart_config": {
+				"categories": [
+					"博士畢業",
+					"碩士畢業",
+					"大學畢業",
+					"專科畢業",
+					"高中畢業",
+					"國中畢業",
+					"國小畢業以下"
+				],
+				"types": ["ColumnChart"],
+				"color": ["#6666ff", "#ff4dc4", "#D63940", "#9C2A4B"],
+				"unit": "人"
+			},
+			"name": "男女教育程度",
+			"source": "民政局",
+			"time_from": "2023-07-28T00:00:00+08:00",
+			"update_freq": null,
+			"update_freq_unit": null,
+			"short_desc": "xxx",
+			"long_desc": "xxx",
+			"use_case": "xxx",
+			"links": [
+				"https://data.taipei/dataset/detail?id=e23346ae-da02-461d-b42b-18a60a1870d5"
 			],
 			"tags": [],
 			"contributors": ["tuic"]
@@ -2926,32 +3028,6 @@
 							"#fff"
 						]
 					},
-					"property": [
-						{
-							"key": "dist",
-							"name": "行政區"
-						},
-						{
-							"key": "light1",
-							"name": "類型"
-						},
-						{
-							"key": "watt1",
-							"name": "瓦數"
-						},
-						{
-							"key": "light_count",
-							"name": "數量"
-						},
-						{
-							"key": "height",
-							"name": "高度"
-						},
-						{
-							"key": "enable_year",
-							"name": "啟動年份"
-						}
-					],
 					"type": "circle",
 					"size": "small",
 					"title": "路燈"
